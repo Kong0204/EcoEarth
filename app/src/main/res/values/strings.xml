@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Eco Earth</string>
+    <string name="login">Log In to App</string>
+    <string name="login_no_account">
+        I don\'t have an account
+        <font color="#088395"><b>Sign Up</b></font>
+    </string>
+    <string name="signup">Create an account</string>
+    <string name="signup_hv_account">
+        I have an account
+        <font color="#088395"><b>Log In</b></font>
+    </string>
+    <string name="email">Your Email Address</string>
+    <string name="password">Your Password</string>
+    <string name="name">Name</string>
+    <string name="forgot">Forgot Password?</string>
+
+</resources>
