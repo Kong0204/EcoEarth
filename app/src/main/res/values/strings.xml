@@ -15,4 +15,77 @@
     <string name="name">Name</string>
     <string name="forgot">Forgot Password?</string>
 
+    <string name="profile_username">Username</string>
+    <string name="profile_age">Age</string>
+    <string name="profile_edit_image_button">Edit Image</string>
+    <string name="profile_bio_text">My name is Yoshikage Kira. I am 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I do not smoke, but I occasionally drink. I am in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I am trying to explain that I am a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I would not lose to anyone.</string>
+    <string name="profile_gender">Gender</string>
+    <string name="profile_birthday">Birthday</string>
+    <string name="title_activity_donation_climate">DonationClimate</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!--gender spinner-->
+    <string name="genderTextLabel">Gender</string>
+    <string-array name="profile_gender_selection">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="pick_fontSize">Choose Your Font Size.</string>
+    <string name="content">Sarah, the person who created this application, is incredibly concerned about the environment and wants to make a difference in the world. Given that the issue of climate change has historically generated considerable debate. To raise awareness and instruct everyone on how to improve our planet, she and her team created this application.</string>
+    <string name="contentPP">Privacy Policy for Eco Earth Mobile Application
+
+Effective Date: 1.1.2023
+
+- Introduction
+
+    Eco Earth Mobile Application ("App") is committed to protecting the privacy of its users. This Privacy Policy describes how we collect, use, and disclose personal information that we receive through the App. This Privacy Policy applies only to information collected through the App and not to information collected offline or through other websites or services.
+
+- Collection of Information
+
+We may collect the following types of personal information:
+- Personal information you provide to us, such as your name, email address, and other contact information when you register for an account or contact us through the App.
+- Information automatically collected when you use the App, such as your IP address, device type, and mobile operating system.
+- Location information if you enable the App\'s location services.
+- Usage information about how you interact with the App, such as the pages you visit and the features you use.
+- Use of Information
+We may use the personal information we collect for the following purposes:
+- To provide and improve the App\'s functionality and features.
+- To respond to your inquiries and requests.
+- To communicate with you about the App and other products and services that may be of interest to you.
+- To personalize your experience on the App.
+- To comply with applicable laws and regulations.
+
+- Sharing of Information
+
+    We may share your personal information with third-party service providers who perform services on our behalf, such as hosting, data analysis, and customer service. We may also share your personal information with other third parties if required by law or to protect our legal rights or interests.
+
+- Security
+
+    We take reasonable measures to protect the personal information we collect from unauthorized access, use, and disclosure. However, no security measure can guarantee complete security. Therefore, we cannot guarantee the security of your personal information.
+
+- Children\'s Privacy
+
+    The App is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under the age of 13. If we learn that we have collected personal information from a child under the age of 13, we will delete the information as soon as possible.
+
+- Changes to this Privacy Policy
+
+    We may update this Privacy Policy from time to time. If we make material changes to this Privacy Policy, we will notify you by email or by posting a notice on the App.
+
+- Contact Us
+
+    If you have any questions about this Privacy Policy or our privacy practices, please contact us at ecoEarth@gmail.com.</string>
+    <string name="contentCUAddress">A-88-4, ABC Tower, Jalan EFG, 45009 Kuala Lumpur, Malaysia</string>
+    <string name="contentCUpn">+6011-23456789</string>
+    <string name="contentCUea">ecoEarth@gmail.com</string>
+    <string name="feedbackTxt">Thanks for letting us know your feedback after using our application. We will listen to your advice and make changes to this application.</string>
+    <string name="feedbackTxt2">Click this Button to give us your feedback.</string>
+    <string name="eduContent">In this section, You will learn about climate changes. This is the top 10 video that all of the people have voted. Hope you can enjoy this 10 videos. And of course you can go to YouTube to learn more details about climate changes.</string>
+    <string name="comContent">In this section, All of the event below is going on in the future. If you got a event to conduct, fell free to add it into here. Hope everyone enjoy this section and help to save the earth together.</string>
+
 </resources>
