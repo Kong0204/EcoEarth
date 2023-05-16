@@ -16,6 +16,8 @@ class Homepage : AppCompatActivity() {
     private lateinit var binding: HomepageBinding
     private lateinit var auth: FirebaseAuth
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +26,8 @@ class Homepage : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val drawerLayout : DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView : NavigationView = findViewById(R.id.nav_view)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.nav_view)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -33,23 +35,13 @@ class Homepage : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        navView.setNavigationItemSelectedListener {
+        navigationView.setNavigationItemSelectedListener {
             when(it.itemId) {
                R.id.nav_community -> Toast.makeText(applicationContext, "Clicked Community", Toast.LENGTH_SHORT).show()
                 R.id.nav_donation -> Toast.makeText(applicationContext, "Clicked Donation", Toast.LENGTH_SHORT).show()
                 R.id.nav_setting -> Toast.makeText(applicationContext, "Clicked Setting", Toast.LENGTH_SHORT).show()
                 R.id.logoutbtn -> Toast.makeText(applicationContext, "Clicked Log Out", Toast.LENGTH_SHORT).show()
             }
-            true
-        }
-
-        binding.topAppbar.setNavigationOnClickListener {
-            binding.drawerLayout.openDrawer(binding.navView)
-        }
-
-        binding.navView.setNavigationItemSelectedListener { menuItem ->
-            menuItem.isChecked = true
-            binding.drawerLayout.closeDrawer(binding.navView)
             true
         }
 

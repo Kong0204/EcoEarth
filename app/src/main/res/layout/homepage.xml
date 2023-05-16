@@ -9,6 +9,9 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <TextView
             android:id="@+id/welcome"
             android:layout_width="match_parent"
@@ -60,6 +63,7 @@
                     app:srcCompat="@drawable/video" />
             </LinearLayout>
         </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -69,6 +73,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/drawer_nav_header"
         app:menu="@menu/drawer_nav_menu"/>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

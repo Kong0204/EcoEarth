@@ -1,4 +1,4 @@
-package com.example.andrinaecoearth.userprofile
+package com.example.ecoearth.userprofile
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -18,10 +18,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import com.example.andrinaecoearth.userprofile.UserProfileViewModel
 import com.example.ecoearth.R
-import com.example.ecoearth.databinding.HomepageBinding
 import com.example.ecoearth.databinding.LayoutUserProfileBinding
 import java.util.prefs.Preferences
+import android.widget.Spinner
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil.setContentView
 
 
 abstract class UserProfile : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -140,7 +143,7 @@ abstract class UserProfile : AppCompatActivity(), AdapterView.OnItemSelectedList
 
 
 //spinner for gender option
-private fun genderSpinner() {
+fun genderSpinner() {
     //1. create object to hold spinner
     val spinnerGenderSelection: Spinner = findViewById(R.id.profile_gender_spinner)
     spinnerGenderSelection.onItemSelectedListener = this
@@ -156,21 +159,17 @@ private fun genderSpinner() {
         //apply the adapter to the spinner
         spinnerGenderSelection.adapter = adapter
 
-
     }
 
-
-    fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+    override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
         //an item was selected. you can retrieve the selected item using parent.getItemAtPosition(pos)
         val selectionTv: TextView = findViewById(R.id.selectedGenderTextView)
         selectionTv.text = parent.getItemAtPosition(pos).toString()
-
-        //do i need this 'return' or not?
-        return
     }
 
 
 }
+
 
 
 private fun setBirthdayDate() {

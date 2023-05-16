@@ -4,7 +4,6 @@
     tools:showIn="navigation_view">
 
     <group
-        android:id="@+id/grp1"
         android:checkableBehavior="single">
 
         <item
@@ -27,7 +26,6 @@
     </group>
 
     <group
-        android:id="@+id/grp2"
         android:checkableBehavior="single">
 
         <item

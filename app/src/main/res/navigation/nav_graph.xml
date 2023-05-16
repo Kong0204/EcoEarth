@@ -6,7 +6,7 @@
     app:startDestination="@id/settingsFragment">
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.asgm_mobile.SettingsFragment"
+        android:name="com.example.ecoearth.SettingsFragment"
         android:label="setting_activity"
         tools:layout="@layout/setting_activity" >
 
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutus"
-        android:name="com.example.asgm_mobile.Aboutus"
+        android:name="com.example.ecoearth.Aboutus"
         android:label="about_us"
         tools:layout="@layout/about_us" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/privacyPolicy"
-        android:name="com.example.asgm_mobile.PrivacyPolicy"
+        android:name="com.example.ecoearth.PrivacyPolicy"
         android:label="PrivacyPolicy"
         tools:layout="@layout/privacy_policy" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactus"
-        android:name="com.example.asgm_mobile.Contactus"
+        android:name="com.example.ecoearth.Contactus"
         android:label="contact_us"
         tools:layout="@layout/contact_us" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/communityPost"
-        android:name="com.example.asgm_mobile.CommunityPost"
+        android:name="com.example.ecoearth.CommunityPost"
         android:label="community_post"
         tools:layout="@layout/community_post" >
         <action
@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/community"
-        android:name="com.example.asgm_mobile.Community"
+        android:name="com.example.ecoearth.Community"
         android:label="communitys"
         tools:layout="@layout/communitys" >
         <action
@@ -70,13 +70,12 @@
     </fragment>
     <fragment
         android:id="@+id/eventDetails"
-        android:name="com.example.asgm_mobile.EventDetails"
+        android:name="com.example.ecoearth.EventDetails"
         android:label="event_details"
         tools:layout="@layout/event_details" >
         <action
             android:id="@+id/action_eventDetails_to_community"
             app:destination="@id/community" />
     </fragment>
-
 
 </navigation>
