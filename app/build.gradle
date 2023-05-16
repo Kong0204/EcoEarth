@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -68,5 +69,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
     implementation "androidx.cardview:cardview:1.0.0"
-
+    //validation for login n signup
+    implementation "io.reactivex.rxjava2:rxjava:2.2.19"
+    implementation "com.jakewharton.rxbinding2:rxbinding:2.0.0"
 }

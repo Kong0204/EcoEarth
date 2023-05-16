@@ -1,76 +1,41 @@
 package com.example.ecoearth
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.MediaController
-import android.widget.Toast
-import android.widget.VideoView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.example.ecoearth.databinding.ActivityClimatetipsBinding
+import com.example.ecoearth.databinding.SettingActivityBinding
 
-class ClimateTips : AppCompatActivity() {
+class ClimateTips : Fragment() {
+    private lateinit var binding: ActivityClimatetipsBinding
 
-    // declaring a null variable for VideoViews
-    var tipsVideoView1: VideoView? = null
-    var tipsVideoView2: VideoView? = null
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): ConstraintLayout {
+        binding = ActivityClimatetipsBinding.inflate(inflater, container ,false)
 
+        binding.tipsVideoView1.setOnClickListener{tlink1()}
+        binding.tipsVideoView2.setOnClickListener{tlink2()}
 
-    // declaring a null variable for MediaController
-    var mediaControls: MediaController? = null
+        return binding.root
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_climatetips)
+    private fun tlink1(){
+        val url = "https://youtu.be/--tawdcPi4w"
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        startActivity(i)
+    }
 
-
-        // assigning id of VideoView from activity_main.xml layout file
-        tipsVideoView1 = findViewById<VideoView>(R.id.tipsVideoView1) as VideoView
-        tipsVideoView2 = findViewById<VideoView>(R.id.tipsVideoView2) as VideoView
-
-
-        if (mediaControls == null) {
-            // creating an object of media controller class
-            mediaControls = MediaController(this)
-
-            // set the anchor view for the video view
-            mediaControls!!.setAnchorView(this.tipsVideoView1)
-            mediaControls!!.setAnchorView(this.tipsVideoView2)
-
-        }
-
-        // set the media controller for video views
-        tipsVideoView1!!.setMediaController(mediaControls)
-        tipsVideoView2!!.setMediaController(mediaControls)
-
-        // set the absolute path of the video file which is going to be played
-        tipsVideoView1!!.setVideoURI(
-            Uri.parse("android.resource://"
-                    + packageName + "/" + R.raw.How_to_save_the_earth_from_climate_change))
-
-        tipsVideoView2!!.setVideoURI(
-            Uri.parse("android.resource://"
-                    + packageName + "/" + R.raw.How_to_save_the_earth_from_climate_change))
-
-        tipsVideoView1!!.requestFocus()
-        tipsVideoView2!!.requestFocus()
-
-        // starting the video
-        tipsVideoView1!!.start()
-        tipsVideoView2!!.start()
-
-
-        // display a toast message if error occurs while playing the video
-        tipsVideoView1!!.setOnErrorListener { mp, what, extra ->
-            Toast.makeText(applicationContext, "An Error Occurred " +
-                    "While Playing Video !!!", Toast.LENGTH_LONG).show()
-            false
-        }
-        tipsVideoView2!!.setOnErrorListener { mp, what, extra ->
-            Toast.makeText(applicationContext, "An Error Occurred " +
-                    "While Playing Video !!!", Toast.LENGTH_LONG).show()
-            false
-        }
-
+    private fun tlink2(){
+        val url = "https://youtu.be/zzzMBQH3ZLY"
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        startActivity(i)
     }
 
 }

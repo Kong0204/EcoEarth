@@ -31,18 +31,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup" />
 
-    <TextView
-        android:id="@+id/birthDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Birthday Date"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name" />
-
     <EditText
         android:id="@+id/resEmail"
         android:layout_width="match_parent"
@@ -53,7 +41,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/birthDate" />
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
     <EditText
         android:id="@+id/resPassword"

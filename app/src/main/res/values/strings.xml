@@ -89,6 +89,9 @@ We may use the personal information we collect for the following purposes:
     <string name="feedbackTxt2">Click this Button to give us your feedback.</string>
     <string name="eduContent">In this section, You will learn about climate changes. This is the top 10 video that all of the people have voted. Hope you can enjoy this 10 videos. And of course you can go to YouTube to learn more details about climate changes.</string>
     <string name="comContent">In this section, All of the event below is going on in the future. If you got a event to conduct, fell free to add it into here. Hope everyone enjoy this section and help to save the earth together.</string>
-
+//new
     <string name="newContent">In this section, You will see news around climate changes. These news come from all different countries. Hope you can know more about climate changes and you can learn more details about climate changes by searching yourself.</string>
+
+    //tips
+    <string name="tipsContent">In this section, You will learn about tips to reduce climate changes. These tips is given by different people. Hope you can know more about how to reduce climate changes and apply it to your daily life.</string>
 </resources>
