@@ -18,15 +18,15 @@
             android:layout_marginEnd="12dp"
             android:orientation="vertical"
             android:scrollbars="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="16dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/profile_image"
+                android:id="@+id/profileView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/default_profile_image" />
+                app:srcCompat="@drawable/profile" />
 
             <Button
                 android:id="@+id/profile_edit_image_button"
@@ -36,25 +36,33 @@
                 android:layout_margin="10dp"
                 android:text="@string/profile_edit_image_button" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/profile_username"
-                    style="@style/profile_text_styles"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:gravity="end|center"
-                    android:paddingStart="0dp"
-                    android:paddingEnd="10dp"
-                    android:text="@string/profile_username"
-                    android:textAlignment="textEnd"
-                    app:layout_constraintBottom_toBottomOf="@id/profile_username_input_text"
-                    app:layout_constraintEnd_toStartOf="@+id/profile_username_input_text"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+            <ScrollView
+                    android:id="@+id/bio_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/profile_username"
+                        style="@style/profile_text_styles"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:gravity="end|center"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="10dp"
+                        android:text="@string/profile_username"
+                        android:textAlignment="textEnd"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_username_input_text"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_username_input_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/profile_username_input_text"
@@ -159,36 +167,40 @@
                     app:layout_constraintStart_toEndOf="@+id/profile_birthday"
                     app:layout_constraintTop_toBottomOf="@id/profile_gender_spinner" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--should this be textview or editview??-->
 
-            <ScrollView
-                android:id="@+id/bio_scroll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="15dp"
-                android:scrollbars="vertical">
+                    <!--button to save user profile description-->
 
-                <!--should this be textview or editview??-->
-                <EditText
-                    android:id="@+id/profile_bio_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:text="@string/profile_bio_text" />
+                    <EditText
+                        android:id="@+id/profile_bio_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/profile_bio_text"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_birthday_input"
+                        app:layout_constraintVertical_bias="0.0" />
 
-            </ScrollView>
+                    <Button
+                        android:id="@+id/profile_bio_save_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/layout_margin"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Save"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_bio_text" />
 
 
-            <!--button to save user profile description-->
-            <Button
-                android:id="@+id/profile_bio_save_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save"
-                app:layout_constraintTop_toBottomOf="@id/bio_scroll"
-                app:layout_constraintEnd_toEndOf="@id/bio_scroll" />
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

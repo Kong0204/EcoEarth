@@ -42,7 +42,6 @@ class ClimateTips : AppCompatActivity() {
         tipsVideoView1!!.setMediaController(mediaControls)
         tipsVideoView2!!.setMediaController(mediaControls)
 
-
         // set the absolute path of the video file which is going to be played
         tipsVideoView1!!.setVideoURI(
             Uri.parse("android.resource://"
@@ -55,12 +54,9 @@ class ClimateTips : AppCompatActivity() {
         tipsVideoView1!!.requestFocus()
         tipsVideoView2!!.requestFocus()
 
-
         // starting the video
         tipsVideoView1!!.start()
         tipsVideoView2!!.start()
-
-
 
 
         // display a toast message if error occurs while playing the video

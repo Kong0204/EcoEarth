@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Eco Earth</string>
+    //login n signup part
     <string name="login">Log In to App</string>
     <string name="login_no_account">
         I don\'t have an account
@@ -15,6 +16,7 @@
     <string name="name">Name</string>
     <string name="forgot">Forgot Password?</string>
 
+    //userprofile part
     <string name="profile_username">Username</string>
     <string name="profile_age">Age</string>
     <string name="profile_edit_image_button">Edit Image</string>
@@ -88,4 +90,5 @@ We may use the personal information we collect for the following purposes:
     <string name="eduContent">In this section, You will learn about climate changes. This is the top 10 video that all of the people have voted. Hope you can enjoy this 10 videos. And of course you can go to YouTube to learn more details about climate changes.</string>
     <string name="comContent">In this section, All of the event below is going on in the future. If you got a event to conduct, fell free to add it into here. Hope everyone enjoy this section and help to save the earth together.</string>
 
+    <string name="newContent">In this section, You will see news around climate changes. These news come from all different countries. Hope you can know more about climate changes and you can learn more details about climate changes by searching yourself.</string>
 </resources>

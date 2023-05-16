@@ -30,7 +30,6 @@ class EventAdapter (
         return ViewHolder(binding)
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val compoundlists = getItem(position)
 //        @SuppressLint("SimpleDateFormat")
