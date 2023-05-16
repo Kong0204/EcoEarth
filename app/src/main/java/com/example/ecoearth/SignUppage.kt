@@ -6,16 +6,23 @@ import android.database.Observable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import com.example.ecoearth.databinding.ActivitySignUppageBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.jakewharton.rxbinding2.widget.RxTextView
 
 @SuppressLint("CheckResult")
 class SignUppage : AppCompatActivity() {
     private lateinit var binding: ActivitySignUppageBinding
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUppageBinding.inflate (layoutInflater)
         setContentView(binding.root)
+
+        //Auth
+        auth = FirebaseAuth.getInstance()
 
         //Fullname Validation
         val nameStream = RxTextView.textChanges (binding.Name)
@@ -60,7 +67,9 @@ class SignUppage : AppCompatActivity() {
             }
         // Click
         binding.signupButton.setOnClickListener {
-            startActivity (Intent( this, Loginpage::class.java))
+            val email = binding.resEmail.text.toString().trim()
+            val password = binding.resPassword.text.toString().trim()
+            resgisterUser(email,password)
         }
         binding.noAccount.setOnClickListener {
             startActivity (Intent( this, Loginpage::class.java))
@@ -79,5 +88,16 @@ class SignUppage : AppCompatActivity() {
         }
         private fun showPasswordConfirmAlert(isNotValid: Boolean) {
             binding.checkPsswd.error = if (isNotValid) "Password not same!" else null
+        }
+        private fun resgisterUser(email: String, password: String) {
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) {
+                    if (it.isSuccessful) {
+                        startActivity (Intent( this, Loginpage::class.java))
+                        Toast.makeText(this, "Sign Up successful!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
 }

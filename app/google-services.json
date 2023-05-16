@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "76576338492",
-    "project_id": "android-database-8581b",
-    "storage_bucket": "android-database-8581b.appspot.com"
+    "project_number": "996373887432",
+    "project_id": "ecoearth-abadd",
+    "storage_bucket": "ecoearth-abadd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:76576338492:android:5acabc92b0d26c0637c939",
+        "mobilesdk_app_id": "1:996373887432:android:d63309af465b2b65c528fd",
         "android_client_info": {
-          "package_name": "com.example.asgm_mobile"
+          "package_name": "com.example.ecoearth"
         }
       },
       "oauth_client": [
         {
-          "client_id": "76576338492-pd9a5snq9lcmloiubk7foc1l96v58o14.apps.googleusercontent.com",
+          "client_id": "996373887432-rkt4a4340u8jnnvhulue8efvt2mj73d8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBzscXzyrzbN3UqkhEuQeDnbCfjor7bjIc"
+          "current_key": "AIzaSyDupkzV8-GEZxYkUfdFrGGrrp-2qn-W2W4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "76576338492-pd9a5snq9lcmloiubk7foc1l96v58o14.apps.googleusercontent.com",
+              "client_id": "996373887432-rkt4a4340u8jnnvhulue8efvt2mj73d8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

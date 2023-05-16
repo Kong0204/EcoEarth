@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/settingsFragment">
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.asgm_mobile.SettingsFragment"
+        android:label="setting_activity"
+        tools:layout="@layout/setting_activity" >
+
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutus"
+            app:destination="@id/aboutus" />
+        <action
+            android:id="@+id/action_settingsFragment_to_privacyPolicy"
+            app:destination="@id/privacyPolicy" />
+        <action
+            android:id="@+id/action_settingsFragment_to_contactus"
+            app:destination="@id/contactus" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutus"
+        android:name="com.example.asgm_mobile.Aboutus"
+        android:label="about_us"
+        tools:layout="@layout/about_us" >
+        <action
+            android:id="@+id/action_aboutus_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyPolicy"
+        android:name="com.example.asgm_mobile.PrivacyPolicy"
+        android:label="PrivacyPolicy"
+        tools:layout="@layout/privacy_policy" >
+        <action
+            android:id="@+id/action_privacyPolicy_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactus"
+        android:name="com.example.asgm_mobile.Contactus"
+        android:label="contact_us"
+        tools:layout="@layout/contact_us" >
+        <action
+            android:id="@+id/action_contactus_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/communityPost"
+        android:name="com.example.asgm_mobile.CommunityPost"
+        android:label="community_post"
+        tools:layout="@layout/community_post" >
+        <action
+            android:id="@+id/action_communityPost_to_community"
+            app:destination="@id/community" />
+    </fragment>
+    <fragment
+        android:id="@+id/community"
+        android:name="com.example.asgm_mobile.Community"
+        android:label="communitys"
+        tools:layout="@layout/communitys" >
+        <action
+            android:id="@+id/action_community_to_communityPost"
+            app:destination="@id/communityPost" />
+        <action
+            android:id="@+id/action_community_to_eventDetails"
+            app:destination="@id/eventDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetails"
+        android:name="com.example.asgm_mobile.EventDetails"
+        android:label="event_details"
+        tools:layout="@layout/event_details" >
+        <action
+            android:id="@+id/action_eventDetails_to_community"
+            app:destination="@id/community" />
+    </fragment>
+
+
+</navigation>
