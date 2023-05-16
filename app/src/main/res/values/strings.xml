@@ -94,8 +94,9 @@ We may use the personal information we collect for the following purposes:
 
     //tips
     <string name="tipsContent">In this section, You will learn about tips to reduce climate changes. These tips is given by different people. Hope you can know more about how to reduce climate changes and apply it to your daily life.</string>
-    
+    <string name="tipstitle">Tips for reduce climate changes</string>
     //drawer
     <string name="open">Open</string>
     <string name="close">Close</string>
+
 </resources>

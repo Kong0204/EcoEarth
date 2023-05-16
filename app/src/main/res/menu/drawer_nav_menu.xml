@@ -23,17 +23,11 @@
             android:icon="@drawable/baseline_settings_24"
             android:title="Settings"
             android:checked="true"/>
-    </group>
-
-    <group
-        android:checkableBehavior="single">
 
         <item
             android:id="@+id/logoutbtn"
             android:icon="@drawable/logout_icon"
             android:title="Log Out"
             android:checked="true"/>
-
     </group>
-
 </menu>

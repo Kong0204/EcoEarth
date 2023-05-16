@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.icu.util.Calendar
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -24,45 +25,45 @@ import com.example.ecoearth.databinding.LayoutUserProfileBinding
 import java.util.prefs.Preferences
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil.setContentView
+import androidx.databinding.adapters.TextViewBindingAdapter.setText
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.google.firebase.auth.FirebaseAuth
+import java.lang.Character.toString
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 abstract class UserProfile : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     //or use
     // lateinit var viewModel: UserProfileViewModel
-    private val viewModel: UserProfileViewModel by viewModels()
-    private lateinit var binding: LayoutUserProfileBinding
+    lateinit var binding: LayoutUserProfileBinding
+    private lateinit var auth: FirebaseAuth
+    val profileViewModel: UserProfileViewModel by viewModels()
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var binding: LayoutUserProfileBinding = DataBindingUtil.inflate(layoutInflater)
-
-        //setContentView(R.layout.layout_user_profile)
+        binding = LayoutUserProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //get the viewmodel
-//        viewModel ViewModelProvider (this).get(UserProfileViewModel::class.java)
+//        //get the viewmodel
+//        profileViewModel ViewModelProvider(this).get(UserProfileViewModel::class.java)
+
+        //Auth
+        auth = FirebaseAuth.getInstance()
 
 
-        //TODO: binding just doesn't work for some reason??
-
-
-        //binding
-        binding.userProfile = User
-
-
-//        binding = DataBindingUtil.inflate(
-//            inflater,
-//            R.layout.layout_user_profile,
-//            container,
-//            false
-//        )
-
-
-        genderSpinner()
-        setBirthdayDate()
+        binding.profileBirthdayInput.onItemSelectedListener {
+            genderSpinner()
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            setBirthdayDate()
+        }
 
         val profileEditImageButton = findViewById<Button>(R.id.profile_edit_image_button)
         profileEditImageButton.setOnClickListener {
@@ -73,12 +74,11 @@ abstract class UserProfile : AppCompatActivity(), AdapterView.OnItemSelectedList
         val profileBioText = findViewById<EditText>(R.id.profile_bio_text)
         val stringProfileBioText = profileBioText.text.toString()
         //button to save user profile bio text description
-        val profileBioSaveButton = findViewById<Button>(R.id.profile_bio_save_button)
-        profileBioSaveButton.setOnClickListener {
+        //val profileBioSaveButton = findViewById<Button>(R.id.profile_bio_save_button)
+        binding.profileBioSaveButton.setOnClickListener {
             saveBioText()
 
-            viewModel.profileBioText.value = stringProfileBioText
-
+            binding.root
         }
 
 
@@ -130,13 +130,6 @@ abstract class UserProfile : AppCompatActivity(), AdapterView.OnItemSelectedList
         }
 
 
-        //click button, choose profile pic
-//        profileEditImageButton.setOnClickListener {
-//            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-//            intent.data = Uri.parse(donationLink1)
-//            startActivity(intent)
-
-
     }
 
 }
@@ -144,13 +137,15 @@ abstract class UserProfile : AppCompatActivity(), AdapterView.OnItemSelectedList
 
 //spinner for gender option
 fun genderSpinner() {
+    lateinit var binding: LayoutUserProfileBinding
+
     //1. create object to hold spinner
-    val spinnerGenderSelection: Spinner = findViewById(R.id.profile_gender_spinner)
-    spinnerGenderSelection.onItemSelectedListener = this
+    val spinnerGenderSelection = binding.profileBirthdayInput
+
 
     //2. create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter.createFromResource(
-        this,
+    val adapter = ArrayAdapter.createFromResource(
+        this@UserProfile,
         R.array.profile_gender_selection,
         android.R.layout.simple_spinner_item
     ).also { adapter ->
@@ -160,21 +155,22 @@ fun genderSpinner() {
         spinnerGenderSelection.adapter = adapter
 
     }
+}
 
-    override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-        //an item was selected. you can retrieve the selected item using parent.getItemAtPosition(pos)
-        val selectionTv: TextView = findViewById(R.id.selectedGenderTextView)
-        selectionTv.text = parent.getItemAtPosition(pos).toString()
-    }
+fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+    lateinit var binding: LayoutUserProfileBinding
+    val selectionTv = binding.selectedGenderTextView
 
-
+    selectionTv.text = parent.getItemAtPosition(pos).toString()
 }
 
 
-
+@RequiresApi(Build.VERSION_CODES.O)
 private fun setBirthdayDate() {
-    //getting reference to the Birthday EditText
-    val setBirthday = findViewById<EditText>(R.id.profile_birthday_input)
+    lateinit var binding: LayoutUserProfileBinding
+
+    val setBirthday = binding.profileBirthdayInput
+
 
     //set OnClickListener on the Birthday EditText to show DatePickerDialog
     setBirthday.setOnClickListener {
@@ -186,10 +182,11 @@ private fun setBirthdayDate() {
 
         //create and show DatePickerDialog
         val datePickerDialog = DatePickerDialog(
-            this,
-            { _, selectedYear, selectedMonth, selectedDayOfMonth ->
-                //set selected date on setBirthday EditText
-                setBirthday.setText("$selectedYear/${selectedMonth + 1}/$selectedDayOfMonth")
+            this@UserProfile,
+            DatePickerDialog.OnDateSetListener { _, selectedYear, selectedMonth, selectedDayOfMonth ->
+                val date = LocalDate.of(selectedYear, selectedMonth + 1, selectedDayOfMonth)
+                val formattedDate = date.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"))
+                setBirthday.setText(formattedDate)
             },
             year,
             month,
@@ -205,12 +202,12 @@ private fun setBirthdayDate() {
 
 //save user profile description
 private fun saveBioText() {
+    lateinit var binding: LayoutUserProfileBinding
+    var profileBioText: String = ""
 
-    val profileBioText = findViewById<EditText>(R.id.profile_bio_text)
 
+    val userText = binding.profileBioText.text.toString()
+    profileBioText = userText
 
-    var userText = editText.text.toString()
-    profileBioText.setText(userText)
-    //do something with text
 
 }

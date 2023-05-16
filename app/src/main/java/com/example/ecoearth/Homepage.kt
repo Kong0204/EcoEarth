@@ -15,9 +15,7 @@ class Homepage : AppCompatActivity() {
 
     private lateinit var binding: HomepageBinding
     private lateinit var auth: FirebaseAuth
-    lateinit var toggle: ActionBarDrawerToggle
-    lateinit var drawerLayout: DrawerLayout
-    lateinit var navigationView: NavigationView
+    private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,23 +24,42 @@ class Homepage : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navigationView = findViewById(R.id.nav_view)
+        binding.apply {
+            navView.bringToFront()
 
-        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+            setSupportActionBar(toolbar)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open,
+                R.string.close
+            )
 
-        navigationView.setNavigationItemSelectedListener {
-            when(it.itemId) {
-               R.id.nav_community -> Toast.makeText(applicationContext, "Clicked Community", Toast.LENGTH_SHORT).show()
-                R.id.nav_donation -> Toast.makeText(applicationContext, "Clicked Donation", Toast.LENGTH_SHORT).show()
-                R.id.nav_setting -> Toast.makeText(applicationContext, "Clicked Setting", Toast.LENGTH_SHORT).show()
-                R.id.logoutbtn -> Toast.makeText(applicationContext, "Clicked Log Out", Toast.LENGTH_SHORT).show()
+            drawerLayout.addDrawerListener(toggle)
+
+            navView.setNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.nav_community -> Toast.makeText(
+                        applicationContext,
+                        "Clicked Community",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    R.id.nav_donation -> Toast.makeText(
+                        applicationContext,
+                        "Clicked Donation",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    R.id.nav_setting -> Toast.makeText(
+                        applicationContext,
+                        "Clicked Setting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    R.id.logoutbtn -> Toast.makeText(
+                        applicationContext,
+                        "Clicked Log Out",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                true
             }
-            true
         }
 
         fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -50,15 +67,6 @@ class Homepage : AppCompatActivity() {
                 return true
             }
             return super.onOptionsItemSelected(item)
-        }
-
-        binding.logoutbtn.setOnClickListener {
-            auth.signOut()
-            Intent(this, Loginpage::class.java).also {
-                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(it)
-                Toast.makeText(this, "Logout successful!", Toast.LENGTH_SHORT).show()
-            }
         }
 
         binding.newbutton.setOnClickListener {
@@ -73,4 +81,6 @@ class Homepage : AppCompatActivity() {
             startActivity(Intent(this, EducationVideo::class.java))
         }
     }
+
+
 }
