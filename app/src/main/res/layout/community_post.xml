@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#13294B"
     android:theme="@style/Theme.EcoEarth"
     tools:context=".CommunityPost">
 
@@ -33,7 +32,6 @@
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/roboto"
         android:text="Add a Event"
-        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,17 +61,14 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 android:text="Event Name:"
-                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editEN"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textTitle2"
@@ -83,14 +78,12 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 android:text="Organization Name:"
-                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editEN2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
                 android:ems="10"
                 android:inputType="textPersonName" />
 
@@ -102,14 +95,12 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 android:text="Event Description:"
-                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editEN3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
                 android:ems="10"
                 android:fontFamily="@font/roboto"
                 android:inputType="textLongMessage" />
@@ -121,14 +112,12 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 android:text="Event Date:"
-                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editEN4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
                 android:ems="10"
                 android:inputType="date" />
 
@@ -139,14 +128,12 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 android:text="Event Organization Contact Number:"
-                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editEN5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
                 android:ems="10"
                 android:inputType="number" />
         </LinearLayout>

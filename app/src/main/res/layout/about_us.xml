@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#13294B"
     android:theme="@style/Theme.EcoEarth"
     tools:context=".Aboutus">
 
@@ -20,7 +19,6 @@
         android:inputType="textPersonName"
         android:text="About Us"
         android:textAlignment="center"
-        android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +66,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto"
                 android:text="Photo of App Creator"
-                android:textAlignment="center"
-                android:textColor="#3E3E3E" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/des"
@@ -79,7 +76,6 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/content"
                 android:textAlignment="center"
-                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="italic" />
 

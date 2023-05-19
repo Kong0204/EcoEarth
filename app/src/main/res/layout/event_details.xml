@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#13294B"
     android:theme="@style/Theme.EcoEarth"
     tools:context=".EventDetails">
 
@@ -17,7 +16,6 @@
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/roboto"
         android:text="Event Details"
-        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

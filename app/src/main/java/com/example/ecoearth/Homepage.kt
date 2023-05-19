@@ -45,7 +45,6 @@ class Homepage : AppCompatActivity() {
                     R.id.nav_home -> {
                         Toast.makeText(this@Homepage, "Home is selected", Toast.LENGTH_SHORT)
                             .show()
-
                         drawerLayout.closeDrawer(GravityCompat.START)
                     }
                     R.id.nav_community -> {
@@ -72,10 +71,10 @@ class Homepage : AppCompatActivity() {
                 }
                 true
             }
-
-
         }
+
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
