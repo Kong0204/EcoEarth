@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ecoearth.databinding.HomepageBinding
 import com.google.android.material.navigation.NavigationView
@@ -29,7 +30,10 @@ class Homepage : AppCompatActivity() {
 
             setSupportActionBar(toolbar)
 
-            toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open,
+            toggle = ActionBarDrawerToggle(
+                this@Homepage,
+                drawerLayout,
+                R.string.open,
                 R.string.close
             )
 
@@ -37,37 +41,50 @@ class Homepage : AppCompatActivity() {
 
             navView.setNavigationItemSelectedListener {
                 when (it.itemId) {
-                    R.id.nav_community -> Toast.makeText(
-                        applicationContext,
-                        "Clicked Community",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.nav_donation -> Toast.makeText(
-                        applicationContext,
-                        "Clicked Donation",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.nav_setting -> Toast.makeText(
-                        applicationContext,
-                        "Clicked Setting",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.logoutbtn -> Toast.makeText(
-                        applicationContext,
-                        "Clicked Log Out",
-                        Toast.LENGTH_SHORT
-                    ).show()
+
+                    R.id.nav_home -> {
+                        Toast.makeText(this@Homepage, "Home is selected", Toast.LENGTH_SHORT)
+                            .show()
+
+                        drawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    R.id.nav_community -> {
+                        Toast.makeText(this@Homepage, "Community is selected", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    R.id.nav_donation -> {
+                        Toast.makeText(this@Homepage, "Donation is selected", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    R.id.nav_setting -> {
+                        Toast.makeText(
+                            this@Homepage, "Setting is selected",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    R.id.logoutbtn -> {
+                        Toast.makeText(
+                            this@Homepage, "Log Out!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
                 }
                 true
             }
-        }
 
-        fun onOptionsItemSelected(item: MenuItem): Boolean {
-            if (toggle.onOptionsItemSelected(item)){
-                return true
-            }
+
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return if (toggle.onOptionsItemSelected(item)) {
+            true
+        } else {
             return super.onOptionsItemSelected(item)
         }
+
 
         binding.newbutton.setOnClickListener {
             startActivity(Intent(this, Newspage::class.java))
